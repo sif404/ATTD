@@ -154,6 +154,16 @@ html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent}
 }
 main{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))!important}
 .scr{padding-bottom:0!important}
+/* Keep QR zoom guidance outside the camera frame so it cannot be clipped */
+#s2 .zoom-help{
+  display:block!important;visibility:visible!important;opacity:1!important;
+  flex:none;width:100%;margin:7px 0 0;padding:8px 11px;
+  border:1px solid var(--bd);border-radius:12px;
+  background:var(--tint);color:var(--ol);
+  text-align:center;font-size:13px;font-weight:600;line-height:1.5;
+}
+@media(max-height:700px){#s2 .zoom-help{font-size:12px;margin-top:5px;padding:6px 9px}}
+@media(max-height:580px){#s2 .zoom-help{font-size:11px;margin-top:4px;padding:5px 8px}}
 /* QR screen: camera stays entirely inside the green frame; controls sit below it */
 #s2 main{
   justify-content:flex-start!important;
@@ -273,7 +283,8 @@ main{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))!important}
 <div class="tc"><h1 id="wl">أهلاً</h1><span class="rec"><svg class="ic"><use href="#i-check"/></svg>تم التعرف عليك</span><p id="s2p">وجّه الكاميرا نحو رمز QR المعروض من المحاضر.</p></div>
 <div class="cam"><div class="vf"><i class="cn a"></i><i class="cn b"></i><i class="cn c"></i><i class="cn d"></i>
 <video id="camera" autoplay muted playsinline></video><canvas id="scan-canvas" hidden></canvas><div class="scan-status" id="scan-status">جارٍ تشغيل الكاميرا…</div></div>
-<p class="hint">استخدم + و− للتكبير والتصغير بدلًا من استخدام إصبعَيك على الشاشة</p></div>
+</div>
+<p class="zoom-help">استخدم + و− للتكبير والتصغير بدلًا من استخدام إصبعَيك على الشاشة</p>
 <div class="zoom"><button id="zoom-out" type="button" aria-label="تصغير" title="تصغير"><svg class="ic"><use href="#i-minus"/></svg></button><button id="zoom-in" type="button" aria-label="تكبير" title="تكبير"><svg class="ic"><use href="#i-plus"/></svg></button></div>
 <button class="btn sec manual-entry" data-go="s3"><svg class="ic"><use href="#i-kbd"/></svg>لا تستطيع المسح؟ أدخل الرمز يدويًا</button>
 <details><summary>حلول سريعة<svg class="ic"><use href="#i-chev"/></svg></summary><p>تأكد من السماح للتطبيق باستخدام الكاميرا.</p><p>ثبّت الهاتف وحافظ على ظهور الرمز كاملًا داخل الإطار.</p></details>
