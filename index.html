@@ -143,6 +143,77 @@ html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent}
 .scr{padding-bottom:env(safe-area-inset-bottom,0px)}.flag{margin-top:env(safe-area-inset-top,0px)}
 @media (max-width:380px){main{padding-left:14px;padding-right:14px}.top{padding-left:14px;padding-right:14px}#otp{gap:6px}#otp input{height:54px;font-size:20px}.hero h1,.tc h1{font-size:20px}.greet{font-size:28px}}
 @media (min-width:431px){body{padding:0}.scr{height:100dvh;border-radius:0}}@media (max-height:700px){.top{padding-top:5px;padding-bottom:3px}.hero{padding:10px 14px}.greet{font-size:25px}.hero p.d{font-size:13px;margin-top:3px}.live{margin-top:6px;padding:3px 10px}.hero .prog{margin-top:7px}.pl{font-size:11px;margin-top:5px}.card{padding:12px;margin-top:8px}.fld input{min-height:48px}.btn{min-height:48px;margin-top:10px}.cam{padding:8px}.vf{width:min(100%,330px,35dvh)}.hint{margin-top:6px}.zoom{margin-top:5px}.zoom button{height:38px;width:38px}details{display:none}.tc h1{margin-top:4px}.skyl{height:58px}main{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}}@media (max-height:580px){.flag{height:16px}.top{padding-top:2px;padding-bottom:2px}.brand .logo{width:38px;height:38px}.hero{padding:8px 12px}.greet{font-size:22px}.hero p.d{line-height:1.5}.live{margin-top:4px}.hero .prog{margin-top:5px}.card{padding:10px;margin-top:6px}.card h2{font-size:15px}.card .sub{font-size:12px}label{margin:7px 0 4px}.fld input{min-height:42px}.btn{min-height:44px}.tc h1{font-size:18px}.tc p{font-size:13px;line-height:1.5}.rec{margin-top:4px;padding:2px 9px}.cam{margin-top:5px;padding:6px}.vf{width:min(100%,250px,34dvh)}.hint{font-size:12px;margin-top:4px}.zoom{margin-top:3px}.zoom button{width:34px;height:34px}.skyl{height:48px}main{padding-bottom:calc(52px + env(safe-area-inset-bottom,0px))}}
+
+/* ATTD layout correction: pin skyline to the physical viewport edge */
+.skyl{
+  position:fixed!important;left:50%!important;right:auto!important;
+  bottom:0!important;transform:translateX(-50%);
+  width:min(100vw,430px)!important;
+  height:calc(clamp(68px,10dvh,88px) + env(safe-area-inset-bottom,0px))!important;
+  z-index:30!important;pointer-events:none!important;
+}
+main{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))!important}
+.scr{padding-bottom:0!important}
+/* QR screen: camera stays entirely inside the green frame; controls sit below it */
+#s2 main{
+  justify-content:flex-start!important;
+  gap:0!important;
+  padding-top:0!important;
+  padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))!important;
+}
+#s2 .tc{flex:none;padding-top:0}
+#s2 .tc h1{margin-top:2px}
+#s2 .tc p{margin-top:2px;line-height:1.55}
+#s2 .cam{
+  flex:none;width:100%;margin-top:8px;padding:9px;
+  display:flex;flex-direction:column;align-items:stretch;
+}
+#s2 .vf{
+  width:min(100%,390px,calc(100dvh - 390px));
+  aspect-ratio:1/1;height:auto;min-height:0;flex:none;
+}
+#s2 .hint{margin-top:6px;line-height:1.4}
+#s2 .zoom{
+  flex:none;display:flex;justify-content:center;gap:18px;
+  margin:8px 0 2px;
+}
+#s2 .zoom button{
+  width:42px;height:42px;background:var(--ol);color:#fff;
+  border:1px solid rgba(255,255,255,.35);box-shadow:0 3px 9px rgba(0,0,0,.14);
+}
+#s2 .zoom button:disabled{opacity:.4}
+#s2 .manual-entry{
+  flex:none;width:100%;margin:4px 0 0;min-height:48px;
+  white-space:normal;line-height:1.4;
+}
+#s2 details,#s2 .foot{display:none!important}
+@media(max-height:700px){
+  #s2 .top{padding-top:4px;padding-bottom:2px}
+  #s2 .tc h1{font-size:19px;line-height:1.35}
+  #s2 .tc p{font-size:13px}
+  #s2 .cam{margin-top:5px;padding:7px}
+  #s2 .vf{width:min(100%,350px,calc(100dvh - 365px))}
+  #s2 .hint{font-size:12px;margin-top:4px}
+  #s2 .zoom{margin:5px 0 0}
+  #s2 .zoom button{width:38px;height:38px}
+  #s2 .manual-entry{min-height:44px;margin-top:3px;font-size:14px}
+  #s2 main{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))!important}
+}
+@media(max-height:580px){
+  #s2 .flag{height:16px}
+  #s2 .top{padding-top:1px;padding-bottom:1px}
+  #s2 .top .ib{width:36px;height:36px}
+  #s2 .tc h1{font-size:17px;margin-top:0}
+  #s2 .tc p{font-size:12px;line-height:1.35}
+  #s2 .cam{margin-top:3px;padding:5px}
+  #s2 .vf{width:min(100%,calc(100dvh - 335px))}
+  #s2 .hint{font-size:11px;margin-top:2px}
+  #s2 .zoom{margin:3px 0 0}
+  #s2 .zoom button{width:34px;height:34px}
+  #s2 .manual-entry{min-height:40px;font-size:13px;margin-top:2px}
+  #s2 main{padding-bottom:calc(56px + env(safe-area-inset-bottom,0px))!important}
+}
+
 </style>
 </head>
 <body>
@@ -202,9 +273,9 @@ html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent}
 <div class="tc"><h1 id="wl">أهلاً</h1><span class="rec"><svg class="ic"><use href="#i-check"/></svg>تم التعرف عليك</span><p id="s2p">وجّه الكاميرا نحو رمز QR المعروض من المحاضر.</p></div>
 <div class="cam"><div class="vf"><i class="cn a"></i><i class="cn b"></i><i class="cn c"></i><i class="cn d"></i>
 <video id="camera" autoplay muted playsinline></video><canvas id="scan-canvas" hidden></canvas><div class="scan-status" id="scan-status">جارٍ تشغيل الكاميرا…</div></div>
-<p class="hint">ضع الرمز كاملًا داخل الإطار</p>
-<div class="zoom"><button id="zoom-out" type="button" aria-label="تصغير" title="تصغير"><svg class="ic"><use href="#i-minus"/></svg></button><button id="zoom-in" type="button" aria-label="تكبير" title="تكبير"><svg class="ic"><use href="#i-plus"/></svg></button></div></div>
-<button class="btn sec" data-go="s3" style="margin-top:10px"><svg class="ic"><use href="#i-kbd"/></svg>لا تستطيع المسح؟ أدخل الرمز يدويًا</button>
+<p class="hint">ضع الرمز كاملًا داخل الإطار</p></div>
+<div class="zoom"><button id="zoom-out" type="button" aria-label="تصغير" title="تصغير"><svg class="ic"><use href="#i-minus"/></svg></button><button id="zoom-in" type="button" aria-label="تكبير" title="تكبير"><svg class="ic"><use href="#i-plus"/></svg></button></div>
+<button class="btn sec manual-entry" data-go="s3"><svg class="ic"><use href="#i-kbd"/></svg>لا تستطيع المسح؟ أدخل الرمز يدويًا</button>
 <details><summary>حلول سريعة<svg class="ic"><use href="#i-chev"/></svg></summary><p>تأكد من السماح للتطبيق باستخدام الكاميرا.</p><p>ثبّت الهاتف وحافظ على ظهور الرمز كاملًا داخل الإطار.</p></details>
 <div class="foot"></div>
 </main></section>
