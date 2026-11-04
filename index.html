@@ -251,7 +251,8 @@ function save(){try{localStorage.setItem('att',JSON.stringify(S))}catch(e){}}
 function show(id){sc.forEach(function(s){s.classList.toggle('on',s.id===id)});if(id!=='s2')stopCamera();if(id==='s2')startCamera();if(id==='s1'){sid.value='';cur=null}if(id==='s4')confetti($('s4'))}
 document.addEventListener('click',function(e){var b=e.target.closest('[data-go]');if(b)show(b.dataset.go)});
 var sid=document.getElementById('sid'),f=document.getElementById('fsid'),er=document.getElementById('esid');
-function normalizeDigits(v){return String(v).replace(/[٠-٩]/g,function(d){return String('٠١٢٣٤٥٦٧٨٩'.indexOf(d))}).replace(/[۰-۹]/g,function(d){return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d))}).replace(/[^0-9]/g,'')}\nsid.addEventListener('input',function(){sid.value=normalizeDigits(sid.value).slice(0,6);f.classList.remove('bad');er.hidden=true});
+function normalizeDigits(v){return String(v).replace(/[٠-٩]/g,function(d){return String('٠١٢٣٤٥٦٧٨٩'.indexOf(d))}).replace(/[۰-۹]/g,function(d){return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d))}).replace(/[^0-9]/g,'')}
+sid.addEventListener('input',function(){sid.value=normalizeDigits(sid.value).slice(0,6);f.classList.remove('bad');er.hidden=true});
 document.getElementById('go1').addEventListener('click',function(){if(/^\d{6}$/.test(sid.value)){enter(sid.value)}else{f.classList.add('bad');er.hidden=false;sid.focus()}});
 function tf(d){try{return d.toLocaleTimeString('ar-JO-u-nu-latn',{hour:'2-digit',minute:'2-digit'})}catch(e){return ''}}
 function df(d){try{return d.toLocaleDateString('ar-JO-u-nu-latn',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}catch(e){return ''}}
