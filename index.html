@@ -15,7 +15,7 @@ body{font-family:"IBM Plex Sans Arabic",sans-serif;background:var(--bg);color:va
 h1,h2,.kufi{font-family:"Noto Kufi Arabic","IBM Plex Sans Arabic",sans-serif;font-weight:700}
 .ic{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .st{fill:currentColor;flex:none}
-.scr{display:none;position:relative;max-width:430px;min-height:100vh;min-height:100dvh;margin:auto;background:var(--paper);overflow:hidden;flex-direction:column;box-shadow:0 0 0 1px var(--bd)}
+html,body{width:100%;height:100%;overflow:hidden;overscroll-behavior:none}body{height:100dvh}.scr{display:none;position:relative;width:100%;max-width:430px;height:100vh;height:100dvh;min-height:0;margin:auto;background:var(--paper);overflow:hidden;flex-direction:column;box-shadow:0 0 0 1px var(--bd)}
 .scr.on{display:flex}
 /* العلم: شريط رفيع + مثلث الراية */
 .flag{height:22px;position:relative;flex:none;z-index:2;background:linear-gradient(var(--ink) 0 33.3%,#fff 33.3% 66.6%,var(--olm) 66.6%)}
@@ -26,7 +26,7 @@ h1,h2,.kufi{font-family:"Noto Kufi Arabic","IBM Plex Sans Arabic",sans-serif;fon
 /* شريط الكوفية: لمسة واحدة أخيرة */
 .top,main{position:relative;z-index:1}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px 6px}
-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:2px 18px 8px}
+main{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:2px 18px 8px;overflow:hidden}
 .brand{display:flex;align-items:center;gap:12px}
 .logo{width:44px;height:44px;border-radius:13px;background:var(--ol);color:#fff;display:grid;place-items:center;font-size:22px}
 .brand b{display:block;font-size:14.5px;line-height:1.4}.brand small,.sub{font-size:13px;color:var(--mut)}
@@ -74,13 +74,13 @@ label{display:block;font-size:14px;font-weight:600;margin:12px 0 6px}
 .arch .ic{width:28px;height:28px}
 .tc h1{margin-top:12px;font-size:21px;line-height:1.5}.tc p{font-size:15px;color:var(--mut);margin-top:4px;line-height:1.85}
 /* الكاميرا */
-.cam{margin-top:12px;border-radius:22px;background:var(--ol2);padding:14px;box-shadow:0 16px 28px -16px rgba(0,0,0,.55)}
-.vf{position:relative;aspect-ratio:1;border-radius:14px;background:radial-gradient(circle at 50% 45%,#34452D,#141C11);display:grid;place-items:center;overflow:hidden}
+.cam{margin-top:8px;border-radius:22px;background:var(--ol2);padding:10px;box-shadow:0 16px 28px -16px rgba(0,0,0,.55)}
+.vf{position:relative;width:100%;height:min(34dvh,290px);min-height:150px;border-radius:14px;background:#111;display:grid;place-items:center;overflow:hidden}.vf video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.vf .scan-status{position:absolute;z-index:2;inset:auto 12px 12px;background:rgba(0,0,0,.68);color:#fff;border-radius:10px;padding:7px 10px;text-align:center;font-size:12px;pointer-events:none}.vf .scan-status:empty{display:none}
 .vf:before{content:"";position:absolute;inset:0;background:var(--mos);opacity:.04}
 .cn{position:absolute;width:44px;height:44px;border:3px solid var(--gold2);border-radius:14px}
 .cn.a{top:18px;right:18px;border-left:0;border-bottom:0}.cn.b{top:18px;left:18px;border-right:0;border-bottom:0}
 .cn.c{bottom:18px;right:18px;border-left:0;border-top:0}.cn.d{bottom:18px;left:18px;border-right:0;border-top:0}
-.shot{position:relative;width:76px;height:76px;border-radius:50%;border:0;background:var(--paper);color:var(--ol);font-size:34px;display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 8px rgba(230,205,147,.22)}
+.shot{display:none}
 .hint{text-align:center;color:rgba(255,255,255,.75);font-size:13px;margin-top:12px}
 .zoom{display:flex;justify-content:center;gap:14px;margin-top:10px}
 .zoom button{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;font-size:20px;cursor:pointer}
@@ -142,7 +142,7 @@ dt{display:flex;gap:10px;align-items:center;color:var(--mut)}dd{font-weight:600}
 html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent}button,.btn,.ib{touch-action:manipulation}
 .scr{padding-bottom:env(safe-area-inset-bottom,0px)}.flag{margin-top:env(safe-area-inset-top,0px)}
 @media (max-width:380px){main{padding-left:14px;padding-right:14px}.top{padding-left:14px;padding-right:14px}#otp{gap:6px}#otp input{height:54px;font-size:20px}.hero h1,.tc h1{font-size:20px}.greet{font-size:28px}}
-@media (min-width:431px){body{padding:16px 0}.scr{min-height:calc(100dvh - 32px);border-radius:24px}}
+@media (min-width:431px){body{padding:0}.scr{height:100dvh;border-radius:0}}@media (max-height:700px){.top{padding-top:6px}.hero{padding:12px 16px}.greet{font-size:27px}.cam{padding:8px}.vf{height:min(30dvh,220px);min-height:130px}.hint{margin-top:6px}.zoom{margin-top:4px}.zoom button{height:36px;width:36px}details{display:none}.tc h1{margin-top:4px}}
 </style>
 </head>
 <body>
@@ -201,7 +201,7 @@ html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent}
 <main>
 <div class="tc"><h1 id="wl">أهلاً</h1><span class="rec"><svg class="ic"><use href="#i-check"/></svg>تم التعرف عليك</span><p id="s2p">وجّه الكاميرا نحو رمز QR المعروض من المحاضر.</p></div>
 <div class="cam"><div class="vf"><i class="cn a"></i><i class="cn b"></i><i class="cn c"></i><i class="cn d"></i>
-<button class="shot" aria-label="محاكاة مسح ناجح"><svg class="ic"><use href="#i-scan"/></svg></button></div>
+<video id="camera" autoplay muted playsinline></video><canvas id="scan-canvas" hidden></canvas><div class="scan-status" id="scan-status">جارٍ تشغيل الكاميرا…</div></div>
 <p class="hint">ضع الرمز كاملًا داخل الإطار</p>
 <div class="zoom"><button aria-label="تصغير"><svg class="ic"><use href="#i-minus"/></svg></button><button aria-label="تكبير"><svg class="ic"><use href="#i-plus"/></svg></button></div></div>
 <button class="btn sec" data-go="s3" style="margin-top:10px"><svg class="ic"><use href="#i-kbd"/></svg>لا تستطيع المسح؟ أدخل الرمز يدويًا</button>
@@ -239,18 +239,19 @@ html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent}
 
 <dialog id="about" aria-labelledby="ab-t"><div class="sh"><div class="logo emb"></div><h2 id="ab-t">عن المنصة</h2></div><p>منصة الحضور الموحّدة هي المنصة المعتمدة من شعبة العلوم العسكرية لتسجيل حضور الطلبة في مساق العلوم العسكرية.</p><ul><li>سجّل دخولك بمسح رمز QR أو بإدخال الرمز يدويًا.</li><li>عند انتهاء المحاضرة أدخل رمز الخروج الجديد من المحاضر ليُحتسب حضورك ومدة بقائك.</li><li>الرقم الجامعي مكوّن من 6 أرقام.</li><li>بياناتك محمية وتُستخدم لتسجيل الحضور فقط.</li></ul><button class="btn" id="aclose">حسنًا</button></dialog>
 
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
 <script>
 (function(){
-var sc=document.querySelectorAll('.scr'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var sc=document.querySelectorAll('.scr'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches,cameraStream=null,scanFrame=0,scanActive=false,barcodeDetector=null;
 function confetti(el){if(rm)return;var c=['#C8102E','#18211A','#4C6B3F','#E6CD93','#fff'];
 for(var i=0;i<26;i++){var s=document.createElement('i');s.className='cf';s.style.left=Math.random()*100+'%';s.style.background=c[i%5];s.style.animationDelay=Math.random()*.6+'s';s.style.borderRadius=i%3?'2px':'50%';if(i%5==4)s.style.boxShadow='0 0 0 1px #E0DDCF';el.appendChild(s);setTimeout(function(n){n.remove()}.bind(null,s),3500)}}
 var DB={'200001':'أحمد محمد الخطيب','200002':'سارة خالد العمري','200003':'عمر يوسف النعيمي'},cur=null,S={},$=function(i){return document.getElementById(i)};
 try{S=JSON.parse(localStorage.getItem('att')||'{}')}catch(e){}
 function save(){try{localStorage.setItem('att',JSON.stringify(S))}catch(e){}}
-function show(id){sc.forEach(function(s){s.classList.toggle('on',s.id===id)});scrollTo(0,0);if(id==='s1'){sid.value='';cur=null}if(id==='s4')confetti($('s4'))}
+function show(id){sc.forEach(function(s){s.classList.toggle('on',s.id===id)});if(id!=='s2')stopCamera();if(id==='s2')startCamera();if(id==='s1'){sid.value='';cur=null}if(id==='s4')confetti($('s4'))}
 document.addEventListener('click',function(e){var b=e.target.closest('[data-go]');if(b)show(b.dataset.go)});
 var sid=document.getElementById('sid'),f=document.getElementById('fsid'),er=document.getElementById('esid');
-sid.addEventListener('input',function(){sid.value=sid.value.replace(/\D/g,'');f.classList.remove('bad');er.hidden=true});
+function normalizeDigits(v){return String(v).replace(/[٠-٩]/g,function(d){return String('٠١٢٣٤٥٦٧٨٩'.indexOf(d))}).replace(/[۰-۹]/g,function(d){return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d))}).replace(/[^0-9]/g,'')}\nsid.addEventListener('input',function(){sid.value=normalizeDigits(sid.value).slice(0,6);f.classList.remove('bad');er.hidden=true});
 document.getElementById('go1').addEventListener('click',function(){if(/^\d{6}$/.test(sid.value)){enter(sid.value)}else{f.classList.add('bad');er.hidden=false;sid.focus()}});
 function tf(d){try{return d.toLocaleTimeString('ar-JO-u-nu-latn',{hour:'2-digit',minute:'2-digit'})}catch(e){return ''}}
 function df(d){try{return d.toLocaleDateString('ar-JO-u-nu-latn',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}catch(e){return ''}}
@@ -264,10 +265,14 @@ $('oksub').textContent=out?'حُفظ وقت خروجك في سجل المقرر.
 $('chip').textContent=out?'تم تسجيل الخروج':'تم تسجيل الدخول';
 var rr=$('rem');rr.textContent=out?'تم احتساب حضورك في المحاضرة':'لا تنسَ تسجيل الخروج حتى تُحتسب حاضرًا';rr.className=out?'rem ok':'rem';
 $('nx').textContent=out?'العودة للبداية':'عرض شاشة تسجيل الخروج'}
+function stopCamera(){scanActive=false;if(scanFrame)cancelAnimationFrame(scanFrame);scanFrame=0;if(cameraStream){cameraStream.getTracks().forEach(function(t){t.stop()});cameraStream=null}var v=$('camera');if(v)v.srcObject=null}
+function startCamera(){stopCamera();var v=$('camera'),status=$('scan-status');if(!v)return;if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){status.textContent='المتصفح لا يدعم تشغيل الكاميرا. استخدم الإدخال اليدوي.';return}status.textContent='يرجى السماح باستخدام الكاميرا لمسح رمز QR';navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:{ideal:'environment'},width:{ideal:1280},height:{ideal:720}}}).then(function(stream){cameraStream=stream;v.srcObject=stream;return v.play()}).then(function(){scanActive=true;status.textContent='وجّه الكاميرا نحو رمز QR';if('BarcodeDetector' in window){try{barcodeDetector=new BarcodeDetector({formats:['qr_code']})}catch(e){barcodeDetector=null}}scanLoop()}).catch(function(){status.textContent='تعذّر فتح الكاميرا. اسمح بالوصول إليها أو استخدم الإدخال اليدوي.'})}
+function acceptQr(raw){var digits=normalizeDigits(raw),m=digits.match(/\d{6}/);if(!m){$('scan-status').textContent='هذا الرمز لا يحتوي على رمز حضور صالح';return}stopCamera();$('scan-status').textContent='تمت قراءة رمز الحضور بنجاح';submit(m[0])}
+function scanLoop(){if(!scanActive)return;var v=$('camera'),c=$('scan-canvas'),ctx=c.getContext('2d');if(v&&v.readyState>=2&&v.videoWidth){c.width=v.videoWidth;c.height=v.videoHeight;ctx.drawImage(v,0,0,c.width,c.height);if(barcodeDetector){barcodeDetector.detect(c).then(function(codes){if(scanActive&&codes.length)acceptQr(codes[0].rawValue)}).catch(function(){})}else if(window.jsQR){var frame=ctx.getImageData(0,0,c.width,c.height),code=jsQR(frame.data,frame.width,frame.height,{inversionAttempts:'attemptBoth'});if(code)acceptQr(code.data)}else $('scan-status').textContent='تعذّر تحميل قارئ QR. استخدم الإدخال اليدوي.'}if(scanActive)scanFrame=requestAnimationFrame(scanLoop)}
 function submit(){if(!cur)return show('s1');fill(false);show('s4')}
 $('nx').addEventListener('click',function(){if(mode==='in'){fill(true);scrollTo(0,0)}else show('s1')});
-$('cfm').addEventListener('click',function(){var oo=document.querySelectorAll('#otp input'),v=Array.prototype.map.call(oo,function(i){return i.value}).join('');if(v.length<6){for(var k=0;k<6;k++)if(!oo[k].value){oo[k].focus();break}return}oo.forEach(function(i){i.value=''});submit()});
-document.querySelector('.shot').addEventListener('click',submit);
+$('cfm').addEventListener('click',function(){var oo=document.querySelectorAll('#otp input'),v=Array.prototype.map.call(oo,function(i){return normalizeDigits(i.value)}).join('');if(v.length<6){for(var k=0;k<6;k++)if(!oo[k].value){oo[k].focus();break}return}oo.forEach(function(i){i.value=''});submit()});
+
 var ab=document.getElementById('about');
 document.querySelectorAll('[aria-label="المساعدة"]').forEach(function(b){b.addEventListener('click',function(){ab.showModal?ab.showModal():ab.setAttribute('open','')})});
 document.getElementById('aclose').addEventListener('click',function(){ab.close()});
@@ -277,9 +282,9 @@ sc.forEach(function(s){s.insertAdjacentHTML('beforeend',ext)});
 setTimeout(function(){var p=document.getElementById('sp');p.style.opacity=0;setTimeout(function(){p.remove()},500)},1400);
 var o=document.querySelectorAll('#otp input');
 o.forEach(function(inp,i){
-inp.addEventListener('input',function(){inp.value=inp.value.replace(/\D/g,'');if(inp.value&&o[i+1])o[i+1].focus()});
+inp.addEventListener('input',function(){inp.value=normalizeDigits(inp.value).slice(0,1);if(inp.value&&o[i+1])o[i+1].focus()});
 inp.addEventListener('keydown',function(e){if(e.key==='Backspace'&&!inp.value&&o[i-1])o[i-1].focus()});
-inp.addEventListener('paste',function(e){var t=(e.clipboardData||window.clipboardData).getData('text').replace(/\D/g,'');if(!t)return;e.preventDefault();t.slice(0,o.length).split('').forEach(function(ch,k){o[k].value=ch});o[Math.min(t.length,o.length-1)].focus()})})
+inp.addEventListener('paste',function(e){var t=normalizeDigits((e.clipboardData||window.clipboardData).getData('text'));if(!t)return;e.preventDefault();t.slice(0,o.length).split('').forEach(function(ch,k){o[k].value=ch});o[Math.min(t.length,o.length-1)].focus()})})
 })();
 </script>
 </body></html>
